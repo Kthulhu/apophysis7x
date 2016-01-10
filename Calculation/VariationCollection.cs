@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Calculation
 {
@@ -92,7 +93,7 @@ namespace Xyrus.Apophysis.Calculation
 
 		public bool IsEqual([NotNull] VariationCollection variations)
 		{
-			if (variations == null) throw new ArgumentNullException(@"variations");
+			if (variations == null) throw new ArgumentNullException(nameof(variations));
 
 			if (variations.Items.Count != Items.Count || variations.mVariationInstances.Count != mVariationInstances.Count)
 				return false;

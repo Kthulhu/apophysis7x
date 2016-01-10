@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Threading;
 
 namespace Xyrus.Apophysis.Calculation
@@ -10,7 +11,7 @@ namespace Xyrus.Apophysis.Calculation
 
 		public IterationThreadStateToken([NotNull] IterationManagerBase manager)
 		{
-			if (manager == null) throw new ArgumentNullException("manager");
+			if (manager == null) throw new ArgumentNullException(nameof(manager));
 			mManager = manager;
 		}
 

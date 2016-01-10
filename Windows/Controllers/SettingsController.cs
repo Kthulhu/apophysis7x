@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Strings;
 using Xyrus.Apophysis.Windows.Interfaces;
 using Options = Xyrus.Apophysis.Windows.Forms.Settings;
@@ -19,7 +20,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public SettingsController([NotNull] MainController parent)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 
 			mParent = parent;
 
@@ -76,14 +77,14 @@ namespace Xyrus.Apophysis.Windows.Controllers
 			mAutosaveController.Initialize();
 
 			View.OkButton.Click += OnOkClick;
-			View.CancelButton.Click += OnCancelClick;
+			View.CancelSettingsButton.Click += OnCancelSettingsClick;
 
 			Update();
 		}
 		protected override void DetachView()
 		{
 			View.OkButton.Click -= OnOkClick;
-			View.CancelButton.Click -= OnCancelClick;
+			View.CancelSettingsButton.Click -= OnCancelSettingsClick;
 		}
 
 		public void Update()
@@ -115,7 +116,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 			mParent.ReloadSettings();
 			View.Close();
 		}
-		private void OnCancelClick(object sender, EventArgs e)
+		private void OnCancelSettingsClick(object sender, EventArgs e)
 		{
 			View.Close();
 		}

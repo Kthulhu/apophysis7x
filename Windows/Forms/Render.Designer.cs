@@ -73,7 +73,7 @@
 			this.ElapsedLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.RemainingLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.InfoLabel = new System.Windows.Forms.ToolStripStatusLabel();
-			this.CancelButton = new System.Windows.Forms.Button();
+			this.CancelRenderButton = new System.Windows.Forms.Button();
 			this.PauseButton = new System.Windows.Forms.Button();
 			this.StartButton = new System.Windows.Forms.Button();
 			this.Tabs.SuspendLayout();
@@ -461,10 +461,10 @@
 			// 
 			// CancelButton
 			// 
-			resources.ApplyResources(this.CancelButton, "CancelButton");
-			this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelButton.Name = "CancelButton";
-			this.CancelButton.UseVisualStyleBackColor = true;
+			resources.ApplyResources(this.CancelRenderButton, "CancelRenderButton");
+			this.CancelRenderButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.CancelRenderButton.Name = "CancelRenderButton";
+			this.CancelRenderButton.UseVisualStyleBackColor = true;
 			// 
 			// PauseButton
 			// 
@@ -485,7 +485,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.StartButton);
 			this.Controls.Add(this.PauseButton);
-			this.Controls.Add(this.CancelButton);
+			this.Controls.Add(this.CancelRenderButton);
 			this.Controls.Add(this.mStatusBar);
 			this.Controls.Add(this.ProgressBar);
 			this.Controls.Add(this.Tabs);
@@ -544,7 +544,7 @@
 		public System.Windows.Forms.ToolStripStatusLabel RemainingLabel;
 		public System.Windows.Forms.ToolStripStatusLabel InfoLabel;
 		public System.Windows.Forms.ToolStripStatusLabel ElapsedLabel;
-		public System.Windows.Forms.Button CancelButton;
+		public System.Windows.Forms.Button CancelRenderButton;
 		public System.Windows.Forms.Button PauseButton;
 		public System.Windows.Forms.Button StartButton;
 		public System.Windows.Forms.TextBox MessagesTextBox;

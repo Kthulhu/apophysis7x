@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Numerics;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Calculation;
 using Xyrus.Apophysis.Models;
 
@@ -18,7 +19,7 @@ namespace Xyrus.Apophysis.Windows.Visuals
 
 		public IteratorPreviewVisual([NotNull] Control control, [NotNull] Canvas canvas, [NotNull] IEnumerable<IteratorVisual> collection) : base(control, canvas)
 		{
-			if (collection == null) throw new ArgumentNullException("collection");
+			if (collection == null) throw new ArgumentNullException(nameof(collection));
 
 			mCollection = collection;
 			mRange = 1;

@@ -19,7 +19,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (value < 50 || value > 120)
 				{
-					throw new ArgumentOutOfRangeException("value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.BatchListPreviewSize = value;
@@ -58,7 +58,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (value < 25)
 				{
-					throw new ArgumentOutOfRangeException("value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.BatchListSize = value;

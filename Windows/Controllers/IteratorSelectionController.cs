@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Windows.Forms;
 
@@ -10,7 +11,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public IteratorSelectionController([NotNull] Editor view, [NotNull] EditorController parent) : base(view)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 			
 			mParent = parent;
 		}

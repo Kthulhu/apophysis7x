@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Models
 {
@@ -19,7 +20,7 @@ namespace Xyrus.Apophysis.Models
 		[NotNull]
 		public static string Serialize(this Vector2 value)
 		{
-			if (value == null) throw new ArgumentNullException("value");
+			if (value == null) throw new ArgumentNullException(nameof(value));
 			return string.Format(@"{0} {1}",
 				value.X.ToString(CultureInfo.InvariantCulture),
 				value.Y.ToString(CultureInfo.InvariantCulture));

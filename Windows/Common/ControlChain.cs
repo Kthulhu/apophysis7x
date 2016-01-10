@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Windows
 {
@@ -42,14 +43,14 @@ namespace Xyrus.Apophysis.Windows
 
 		public void Add([NotNull] TChainItem handler, int priority = 1)
 		{
-			if (handler == null) throw new ArgumentNullException("handler");
-			if (priority < 1) throw new ArgumentOutOfRangeException("priority");
+			if (handler == null) throw new ArgumentNullException(nameof(handler));
+			if (priority < 1) throw new ArgumentOutOfRangeException(nameof(priority));
 
 			mChain.Add(new PriorizedChainItem { Handler = handler, Priority = priority });
 		}
 		public void Remove([NotNull] TChainItem painter)
 		{
-			if (painter == null) throw new ArgumentNullException("painter");
+			if (painter == null) throw new ArgumentNullException(nameof(painter));
 
 			if (mChain == null)
 				return;

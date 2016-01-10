@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Windows.Controls;
 using Xyrus.Apophysis.Windows.Interfaces;
 
@@ -31,7 +32,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 		protected DataInputController([NotNull] TView view, [NotNull] Lock initializeLock)
 			: base(view)
 		{
-			if (initializeLock == null) throw new ArgumentNullException("initializeLock");
+			if (initializeLock == null) throw new ArgumentNullException(nameof(initializeLock));
 			mInitializer = initializeLock;
 		}
 
@@ -100,9 +101,9 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		protected void Register([NotNull] DragPanel dragPanel, [NotNull] Action<float> setter, [NotNull] Func<float> getter)
 		{
-			if (dragPanel == null) throw new ArgumentNullException("dragPanel");
-			if (setter == null) throw new ArgumentNullException("setter");
-			if (getter == null) throw new ArgumentNullException("getter");
+			if (dragPanel == null) throw new ArgumentNullException(nameof(dragPanel));
+			if (setter == null) throw new ArgumentNullException(nameof(setter));
+			if (getter == null) throw new ArgumentNullException(nameof(getter));
 
 			mDragPanels.Add(dragPanel, new InputInfo { Setter = setter, Getter = getter });
 			dragPanel.ValueChanged += OnValueChanged;
@@ -116,9 +117,9 @@ namespace Xyrus.Apophysis.Windows.Controllers
 		}
 		protected void Register([NotNull] ScrollBar scrollBar, [NotNull] Action<float> setter, [NotNull] Func<float> getter)
 		{
-			if (scrollBar == null) throw new ArgumentNullException("scrollBar");
-			if (setter == null) throw new ArgumentNullException("setter");
-			if (getter == null) throw new ArgumentNullException("getter");
+			if (scrollBar == null) throw new ArgumentNullException(nameof(scrollBar));
+			if (setter == null) throw new ArgumentNullException(nameof(setter));
+			if (getter == null) throw new ArgumentNullException(nameof(getter));
 
 			mScrollBars.Add(scrollBar, new InputInfo { Setter = setter, Getter = getter });
 			scrollBar.ValueChanged += OnValueChanged;
@@ -126,9 +127,9 @@ namespace Xyrus.Apophysis.Windows.Controllers
 		}
 		protected void Register([NotNull] TextBox textBox, [NotNull] Action<float> setter, [NotNull] Func<float> getter)
 		{
-			if (textBox == null) throw new ArgumentNullException("textBox");
-			if (setter == null) throw new ArgumentNullException("setter");
-			if (getter == null) throw new ArgumentNullException("getter");
+			if (textBox == null) throw new ArgumentNullException(nameof(textBox));
+			if (setter == null) throw new ArgumentNullException(nameof(setter));
+			if (getter == null) throw new ArgumentNullException(nameof(getter));
 
 			mTextBoxes.Add(textBox, new InputInfo { Setter = setter, Getter = getter });
 			textBox.TextChanged += OnValueChanged;
@@ -138,9 +139,9 @@ namespace Xyrus.Apophysis.Windows.Controllers
 		}
 		protected void Register([NotNull] ComboBox comboBox, [NotNull] Action<float> setter, [NotNull] Func<float> getter)
 		{
-			if (comboBox == null) throw new ArgumentNullException("comboBox");
-			if (setter == null) throw new ArgumentNullException("setter");
-			if (getter == null) throw new ArgumentNullException("getter");
+			if (comboBox == null) throw new ArgumentNullException(nameof(comboBox));
+			if (setter == null) throw new ArgumentNullException(nameof(setter));
+			if (getter == null) throw new ArgumentNullException(nameof(getter));
 
 			mComboBoxes.Add(comboBox, new InputInfo { Setter = setter, Getter = getter });
 			comboBox.TextChanged += OnValueChanged;
@@ -150,9 +151,9 @@ namespace Xyrus.Apophysis.Windows.Controllers
 		}
 		protected void Register([NotNull] NumericUpDown upDown, [NotNull] Action<float> setter, [NotNull] Func<float> getter)
 		{
-			if (upDown == null) throw new ArgumentNullException("upDown");
-			if (setter == null) throw new ArgumentNullException("setter");
-			if (getter == null) throw new ArgumentNullException("getter");
+			if (upDown == null) throw new ArgumentNullException(nameof(upDown));
+			if (setter == null) throw new ArgumentNullException(nameof(setter));
+			if (getter == null) throw new ArgumentNullException(nameof(getter));
 
 			mUpDownControls.Add(upDown, new InputInfo { Setter = setter, Getter = getter });
 			upDown.KeyPress += OnUpDownKeyPress;

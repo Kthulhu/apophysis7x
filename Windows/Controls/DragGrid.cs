@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Windows.Controllers;
 using Xyrus.Apophysis.Windows.Input;
 

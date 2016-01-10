@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Numerics;
 using System.Runtime.InteropServices;
+using JetBrains.Annotations;
 using Rectangle = System.Drawing.Rectangle;
 
 namespace Xyrus.Apophysis.Calculation
@@ -36,9 +37,9 @@ namespace Xyrus.Apophysis.Calculation
 		}
 		public Histogram([NotNull] Renderer renderer, Size size)
 		{
-			if (renderer == null) throw new ArgumentNullException("renderer");
+			if (renderer == null) throw new ArgumentNullException(nameof(renderer));
 			if (size.Width <= 0 || size.Height <= 0)
-				throw new ArgumentOutOfRangeException(@"size");
+				throw new ArgumentOutOfRangeException(nameof(size));
 
 			mSize = size;
 			mRenderer = renderer;

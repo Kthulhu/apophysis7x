@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Math;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Windows.Controls;
@@ -28,8 +29,8 @@ namespace Xyrus.Apophysis.Windows.Input
 
 		public IteratorCollectionInputHandler([NotNull] Control control, [NotNull] IteratorCollectionVisual visualCollection, [NotNull] Canvas canvas) : base(control)
 		{
-			if (visualCollection == null) throw new ArgumentNullException("visualCollection");
-			if (canvas == null) throw new ArgumentNullException("canvas");
+			if (visualCollection == null) throw new ArgumentNullException(nameof(visualCollection));
+			if (canvas == null) throw new ArgumentNullException(nameof(canvas));
 
 			mVisualCollection = visualCollection;
 			mCanvas = canvas;
@@ -98,7 +99,7 @@ namespace Xyrus.Apophysis.Windows.Input
 			get { return mSettings; }
 			set
 			{
-				if (value == null) throw new ArgumentNullException("value");
+				if (value == null) throw new ArgumentNullException(nameof(value));
 				mSettings = value;
 			}
 		}

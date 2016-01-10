@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.ComponentModel.Design.Serialization;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Windows.Controls
 {
@@ -23,7 +24,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 
 		internal void BindContextMenu([NotNull] EditorGridContextMenu menu)
 		{
-			if (menu == null) throw new ArgumentNullException("menu");
+			if (menu == null) throw new ArgumentNullException(nameof(menu));
 
 			mContextMenu = menu;
 			mContextMenu.UpdateCheckedStates(this);

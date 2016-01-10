@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using JetBrains.Annotations;
 using Microsoft.Practices.Unity;
 
 namespace Xyrus.Apophysis
@@ -32,22 +33,22 @@ namespace Xyrus.Apophysis
 		{
 			if (0 > a || 255 < a)
 			{
-				throw new ArgumentOutOfRangeException(@"a");
+				throw new ArgumentOutOfRangeException(nameof(a));
 			}
 
 			if (0f > h || 360f < h)
 			{
-				throw new ArgumentOutOfRangeException(@"h");
+				throw new ArgumentOutOfRangeException(nameof(h));
 			}
 
 			if (0f > s || 1f < s)
 			{
-				throw new ArgumentOutOfRangeException(@"s");
+				throw new ArgumentOutOfRangeException(nameof(s));
 			}
 
 			if (0f > b || 1f < b)
 			{
-				throw new ArgumentOutOfRangeException(@"b");
+				throw new ArgumentOutOfRangeException(nameof(b));
 			}
 
 			if (System.Math.Abs(s) < float.Epsilon)
@@ -194,8 +195,8 @@ namespace Xyrus.Apophysis
 
 		public static void RegisterInContainer([NotNull] this Type @interface, [NotNull] Type @as, bool singleton = false)
 		{
-			if (@interface == null) throw new ArgumentNullException(@"interface");
-			if (@as == null) throw new ArgumentNullException(@"as");
+			if (@interface == null) throw new ArgumentNullException(nameof(@interface));
+			if (@as == null) throw new ArgumentNullException(nameof(@as));
 
 			ApophysisApplication.Container.RegisterType(@interface, @as);
 		}

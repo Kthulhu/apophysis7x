@@ -1,4 +1,6 @@
-﻿namespace Xyrus.Apophysis
+﻿using JetBrains.Annotations;
+
+namespace Xyrus.Apophysis
 {
 	[PublicAPI]
 	public static class Float

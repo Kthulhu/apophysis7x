@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Xml.Linq;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Messaging;
 using Xyrus.Apophysis.Strings;
 
@@ -22,7 +23,7 @@ namespace Xyrus.Apophysis.Models
 		{
 			if (Items.Count == 0)
 			{
-				throw new ArgumentException(Messages.EmptyBatchError, @"flames");
+				throw new ArgumentException(Messages.EmptyBatchError, nameof(flames));
 			}
 
 			Name = null;
@@ -55,7 +56,7 @@ namespace Xyrus.Apophysis.Models
 		}
 		public int Append([NotNull] Flame flame)
 		{
-			if (flame == null) throw new ArgumentNullException(@"flame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 
 			Items.Add(flame);
 			RaiseContentChanged();
@@ -75,7 +76,7 @@ namespace Xyrus.Apophysis.Models
 		}
 		public bool Remove([NotNull] Flame flame)
 		{
-			if (flame == null) throw new ArgumentNullException(@"flame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 			if (!CanRemove()) throw new ApophysisException(Messages.EmptyFlameCollectionError);
 
 			if (!Contains(flame))
@@ -93,8 +94,8 @@ namespace Xyrus.Apophysis.Models
 
 		public bool Replace([NotNull] Flame flame, [NotNull] Flame substituteFlame)
 		{
-			if (flame == null) throw new ArgumentNullException(@"flame");
-			if (substituteFlame == null) throw new ArgumentNullException(@"substituteFlame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
+			if (substituteFlame == null) throw new ArgumentNullException(nameof(substituteFlame));
 
 			if (!Contains(flame))
 				return false;
@@ -123,7 +124,7 @@ namespace Xyrus.Apophysis.Models
 
 		public void ReadXml([NotNull] XElement element)
 		{
-			if (element == null) throw new ArgumentNullException(@"element");
+			if (element == null) throw new ArgumentNullException(nameof(element));
 
 			var elementName = element.Name.ToString().ToLower();
 			var elementNames = new[] { @"flame", @"flames" };

@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using JetBrains.Annotations;
 using ThreadState = Xyrus.Apophysis.Threading.ThreadState;
 
 namespace Xyrus.Apophysis.Calculation
@@ -26,7 +27,7 @@ namespace Xyrus.Apophysis.Calculation
 			get { return mThreadState; }
 			set
 			{
-				if (value == null) throw new ArgumentNullException("value");
+				if (value == null) throw new ArgumentNullException(nameof(value));
 				mThreadState = value;
 			}
 		}

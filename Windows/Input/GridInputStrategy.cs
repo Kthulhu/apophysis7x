@@ -1,5 +1,6 @@
 ﻿using System.Numerics;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Windows.Input
 {

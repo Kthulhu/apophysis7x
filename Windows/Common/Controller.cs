@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Windows.Interfaces;
 
 namespace Xyrus.Apophysis.Windows
@@ -33,7 +34,7 @@ namespace Xyrus.Apophysis.Windows
 		}
 		protected Controller([NotNull] TView view)
 		{
-			if (view == null) throw new ArgumentNullException("view");
+			if (view == null) throw new ArgumentNullException(nameof(view));
 			mView = view;
 		}
 

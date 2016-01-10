@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Threading
 {
@@ -9,7 +10,7 @@ namespace Xyrus.Apophysis.Threading
 
 		internal ThreadStateToken([NotNull] ThreadController controller)
 		{
-			if (controller == null) throw new ArgumentNullException("controller");
+			if (controller == null) throw new ArgumentNullException(nameof(controller));
 			mController = controller;
 		}
 

@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Math;
 using Rectangle = System.Drawing.Rectangle;
 

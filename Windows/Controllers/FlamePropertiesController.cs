@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Windows.Forms;
 using Xyrus.Apophysis.Windows.Interfaces;
@@ -23,7 +24,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public FlamePropertiesController([NotNull] MainController parent)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 			mParent = parent;
 
 			mPreviewController = new FlamePropertiesPreviewController(View, this);
@@ -143,7 +144,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 			get { return mFlame; }
 			set
 			{
-				if (value == null) throw new ArgumentNullException("value");
+				if (value == null) throw new ArgumentNullException(nameof(value));
 
 				mFlame = value;
 

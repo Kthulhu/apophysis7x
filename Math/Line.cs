@@ -1,5 +1,6 @@
 using System;
 using System.Numerics;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Math
 {
@@ -11,8 +12,8 @@ namespace Xyrus.Apophysis.Math
 
 		public Line(Vector2 a, Vector2 b)
 		{
-			if (a == null) throw new ArgumentNullException(@"a");
-			if (b == null) throw new ArgumentNullException(@"b");
+			if (a == null) throw new ArgumentNullException(nameof(a));
+			if (b == null) throw new ArgumentNullException(nameof(b));
 
 			mA = a;
 			mB = b;
@@ -38,7 +39,7 @@ namespace Xyrus.Apophysis.Math
 
 		public bool IsInProximity(Vector2 point, float epsilon = 1)
 		{
-			if (point == null) throw new ArgumentNullException(@"point");
+			if (point == null) throw new ArgumentNullException(nameof(point));
 
 			var delta = B - A;
 			var deltaSq = delta*delta;

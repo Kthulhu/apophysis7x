@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Numerics;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Models;
 
 namespace Xyrus.Apophysis.Calculation
@@ -23,8 +24,8 @@ namespace Xyrus.Apophysis.Calculation
 		}
 		private IteratorData([NotNull] FlameData data, [NotNull] Iterator iterator, bool terminal)
 		{
-			if (data == null) throw new ArgumentNullException("data");
-			if (iterator == null) throw new ArgumentNullException("iterator");
+			if (data == null) throw new ArgumentNullException(nameof(data));
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 
 			mData = data;
 			mIndex = iterator.Index;

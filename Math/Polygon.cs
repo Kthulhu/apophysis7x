@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Strings;
 
 namespace Xyrus.Apophysis.Math
@@ -13,13 +14,13 @@ namespace Xyrus.Apophysis.Math
 
 		public Polygon([NotNull] IEnumerable<Vector2> vertices)
 		{
-			if (vertices == null) throw new ArgumentNullException(@"vertices");
+			if (vertices == null) throw new ArgumentNullException(nameof(vertices));
 
 			mVertices = vertices.ToArray();
 
 			if (mVertices.Length <= 2)
 			{
-				throw new ArgumentOutOfRangeException(@"vertices", Messages.InvalidPolygonError);
+				throw new ArgumentOutOfRangeException(nameof(vertices), Messages.InvalidPolygonError);
 			}
 		}
 

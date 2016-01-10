@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Numerics;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Models;
 using Rectangle = Xyrus.Apophysis.Math.Rectangle;
 
@@ -28,8 +29,8 @@ namespace Xyrus.Apophysis.Calculation
 		}
 		public FlameData([NotNull] Renderer renderer, [NotNull] Flame flame)
 		{
-			if (renderer == null) throw new ArgumentNullException(@"renderer");
-			if (flame == null) throw new ArgumentNullException(@"flame");
+			if (renderer == null) throw new ArgumentNullException(nameof(renderer));
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 
 			mRenderer = renderer;
 			mFlame = flame;

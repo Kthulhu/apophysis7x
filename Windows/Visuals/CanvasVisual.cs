@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Numerics;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Rectangle = Xyrus.Apophysis.Math.Rectangle;
 
 namespace Xyrus.Apophysis.Windows.Visuals
@@ -16,7 +17,7 @@ namespace Xyrus.Apophysis.Windows.Visuals
 
 		protected CanvasVisual([NotNull] Control control, [NotNull] T canvas) : base(control)
 		{
-			if (canvas == null) throw new ArgumentNullException("canvas");
+			if (canvas == null) throw new ArgumentNullException(nameof(canvas));
 			mCanvas = canvas;
 		}
 		protected override void DisposeOverride(bool disposing)

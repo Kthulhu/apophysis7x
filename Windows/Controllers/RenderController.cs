@@ -7,6 +7,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Calculation;
 using Xyrus.Apophysis.Messaging;
 using Xyrus.Apophysis.Models;
@@ -52,7 +53,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public RenderController([NotNull] MainController parent)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 
 			mParent = parent;
 			mIterationManager = new ThreadedIterationManager();
@@ -123,7 +124,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 			View.StartButton.Click += OnStartClick;
 			View.PauseButton.Click += OnPauseClick;
-			View.CancelButton.Click += OnCancelClick;
+			View.CancelRenderButton.Click += OnCancelRenderClick;
 
 			View.SelectFolderButton.Click += OnSelectFolderClick;
 			View.FormatComboBox.SelectedIndexChanged += OnSelectFormat;
@@ -167,7 +168,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 			View.StartButton.Click -= OnStartClick;
 			View.PauseButton.Click -= OnPauseClick;
-			View.CancelButton.Click -= OnCancelClick;
+			View.CancelRenderButton.Click -= OnCancelRenderClick;
 
 			View.SelectFolderButton.Click -= OnSelectFolderClick;
 			View.FormatComboBox.SelectedIndexChanged -= OnSelectFormat;
@@ -355,7 +356,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 				mIterationManager.Resume();
 			}
 		}
-		private void OnCancelClick(object sender, EventArgs e)
+		private void OnCancelRenderClick(object sender, EventArgs e)
 		{
 			if (IsRendering)
 			{
@@ -729,7 +730,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 				case TargetImageFileFormat.Tiff:
 					return @"tif";
 				default:
-					throw new ArgumentOutOfRangeException("format");
+					throw new ArgumentOutOfRangeException(nameof(format));
 			}
 		}
 		private TargetImageFileFormat GetFormat(string extension)
@@ -772,7 +773,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 				if (value.HasValue)
 				{
 					if (value.Value.Width <= 0 || value.Value.Height <= 0)
-						throw new ArgumentOutOfRangeException("value");
+						throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				mPreset1 = value;
@@ -787,7 +788,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 				if (value.HasValue)
 				{
 					if (value.Value.Width <= 0 || value.Value.Height <= 0)
-						throw new ArgumentOutOfRangeException("value");
+						throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				mPreset2 = value;
@@ -802,7 +803,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 				if (value.HasValue)
 				{
 					if (value.Value.Width <= 0 || value.Value.Height <= 0)
-						throw new ArgumentOutOfRangeException("value");
+						throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				mPreset3 = value;
@@ -844,7 +845,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 				View.StartButton.Enabled = !value;
 				View.PauseButton.Enabled = value;
-				View.CancelButton.Text = value ? ControlResources.Cancel : ControlResources.Close;
+				View.CancelRenderButton.Text = value ? ControlResources.Cancel : ControlResources.Close;
 
 				View.SizeGroupBox.Enabled = !value;
 				View.PropertiesGroupBox.Enabled = !value;

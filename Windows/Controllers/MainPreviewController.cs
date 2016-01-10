@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.Globalization;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Calculation;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Windows.Forms;
@@ -25,7 +26,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public MainPreviewController([NotNull] Main view, [NotNull] MainController parent) : base(view)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 
 			mParent = parent;
 			mPreviewTimeLock = new TimeLock(OnPreviewSizeChangedCallback)

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Xml.Linq;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Calculation;
 using Xyrus.Apophysis.Messaging;
 using Xyrus.Apophysis.Strings;
@@ -33,7 +34,7 @@ namespace Xyrus.Apophysis.Models
 
 		public Iterator([NotNull] Flame hostingFlame)
 		{
-			if (hostingFlame == null) throw new ArgumentNullException(@"hostingFlame");
+			if (hostingFlame == null) throw new ArgumentNullException(nameof(hostingFlame));
 
 			mVariations = new VariationCollection();
 			mFlame = hostingFlame;
@@ -98,7 +99,7 @@ namespace Xyrus.Apophysis.Models
 		[NotNull]
 		internal Iterator Copy([NotNull] Flame flame)
 		{
-			if (flame == null) throw new ArgumentNullException(@"flame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 			var copy = Copy();
 			copy.mFlame = flame;
 			return copy;
@@ -143,7 +144,7 @@ namespace Xyrus.Apophysis.Models
 			{
 				if (value < float.Epsilon)
 				{
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				mWeight = value;
@@ -156,7 +157,7 @@ namespace Xyrus.Apophysis.Models
 			{
 				if (value < 0 || value > 1)
 				{
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				mColor = value;
@@ -169,7 +170,7 @@ namespace Xyrus.Apophysis.Models
 			{
 				if (value < -1 || value > 1)
 				{
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				mColorSpeed = value;
@@ -182,7 +183,7 @@ namespace Xyrus.Apophysis.Models
 			{
 				if (value < 0 || value > 1)
 				{
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				mOpacity = value;
@@ -195,7 +196,7 @@ namespace Xyrus.Apophysis.Models
 			{
 				if (value < 0 || value > 1)
 				{
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				mDirectColor = value;
@@ -207,7 +208,7 @@ namespace Xyrus.Apophysis.Models
 			get { return mPreAffine; }
 			set
 			{
-				if (value == null) throw new ArgumentNullException(@"value");
+				if (value == null) throw new ArgumentNullException(nameof(value));
 				mPreAffine = value;
 			}
 		}
@@ -217,7 +218,7 @@ namespace Xyrus.Apophysis.Models
 			get { return mPostAffine; }
 			set
 			{
-				if (value == null) throw new ArgumentNullException(@"value");
+				if (value == null) throw new ArgumentNullException(nameof(value));
 				mPostAffine = value;
 			}
 		}
@@ -230,7 +231,7 @@ namespace Xyrus.Apophysis.Models
 
 		public void ReadXml([NotNull] XElement element)
 		{
-			if (element == null) throw new ArgumentNullException(@"element");
+			if (element == null) throw new ArgumentNullException(nameof(element));
 
 			var elementName = element.Name.ToString().ToLower();
 			var elementNames = new[] { @"xform", @"finalxform" };
@@ -366,7 +367,7 @@ namespace Xyrus.Apophysis.Models
 		}
 		public bool IsEqual([NotNull] Iterator iterator)
 		{
-			if (iterator == null) throw new ArgumentNullException(@"iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 
 			if (!Equals(mName, iterator.mName))
 				return false;

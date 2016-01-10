@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Windows;
 
 namespace Xyrus.Apophysis.Threading
@@ -163,22 +164,6 @@ namespace Xyrus.Apophysis.Threading
 		{
 			get; 
 			set;
-		}
-	}
-
-	public class MultiThreadController : Controller
-	{
-		private volatile bool mCancel;
-		private volatile bool mSuspended;
-		private volatile bool mRunning;
-
-		private Thread[] mThread;
-
-		private readonly ThreadPriority mPriority;
-
-		protected override void Dispose(bool disposing)
-		{
-			
 		}
 	}
 }

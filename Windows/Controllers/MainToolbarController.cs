@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Windows.Forms;
 using Xyrus.Apophysis.Windows.Interfaces;
 
@@ -10,7 +11,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public MainToolbarController([NotNull] Main view, [NotNull] MainController parent) : base(view)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 			mParent = parent;
 		}
 		protected override void DisposeOverride(bool disposing)

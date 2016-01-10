@@ -1,4 +1,6 @@
-﻿namespace Xyrus.Apophysis.Windows
+﻿using JetBrains.Annotations;
+
+namespace Xyrus.Apophysis.Windows
 {
 	[PublicAPI]
 	public enum CanvasSnapBehavior

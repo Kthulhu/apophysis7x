@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Numerics;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Windows.Input
 {
@@ -34,7 +35,7 @@ namespace Xyrus.Apophysis.Windows.Input
 
 		public bool HandleMouseDown(Vector2 cursor)
 		{
-			if (cursor == null) throw new ArgumentNullException("cursor");
+			if (cursor == null) throw new ArgumentNullException(nameof(cursor));
 			return OnAttachedControlMouseDown(cursor);
 		}
 		public bool HandleMouseUp()
@@ -44,7 +45,7 @@ namespace Xyrus.Apophysis.Windows.Input
 
 		public bool HandleMouseMove(Vector2 cursor, MouseButtons button)
 		{
-			if (cursor == null) throw new ArgumentNullException("cursor");
+			if (cursor == null) throw new ArgumentNullException(nameof(cursor));
 			return OnAttachedControlMouseMove(cursor, button);
 		}
 		public bool HandleMouseWheel(float delta, MouseButtons button)

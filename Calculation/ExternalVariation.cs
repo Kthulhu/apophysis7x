@@ -5,12 +5,13 @@ using System.IO;
 using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Text;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Strings;
 
 namespace Xyrus.Apophysis.Calculation
 {
 	[PublicAPI]
-	public unsafe sealed class ExternalVariation : Variation
+	public sealed unsafe class ExternalVariation : Variation
 	{
 		private const CallingConvention mConvention = CallingConvention.Cdecl;
 
@@ -130,7 +131,7 @@ namespace Xyrus.Apophysis.Calculation
 		}
 		public ExternalVariation([NotNull] string dllPath)
 		{
-			if (string.IsNullOrEmpty(dllPath)) throw new ArgumentNullException(@"dllPath");
+			if (string.IsNullOrEmpty(dllPath)) throw new ArgumentNullException(nameof(dllPath));
 			if (!File.Exists(dllPath)) throw new FileNotFoundException(Messages.PluginModuleNotFoundError, dllPath);
 
 			if (!FitsCurrentMachineType(dllPath))
@@ -145,7 +146,7 @@ namespace Xyrus.Apophysis.Calculation
 
 		public static bool FitsCurrentMachineType([NotNull] string dllPath)
 		{
-			if (string.IsNullOrEmpty(dllPath)) throw new ArgumentNullException(@"dllPath");
+			if (string.IsNullOrEmpty(dllPath)) throw new ArgumentNullException(nameof(dllPath));
 			if (!File.Exists(dllPath)) throw new FileNotFoundException(Messages.PluginModuleNotFoundError, dllPath);
 
 			var is64Bit = IntPtr.Size == 8;

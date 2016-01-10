@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Windows;
 
 namespace Xyrus.Apophysis.Calculation
@@ -83,12 +84,12 @@ namespace Xyrus.Apophysis.Calculation
 
 		public void StartIterate(Histogram histogram)
 		{
-			if (histogram == null) throw new ArgumentNullException(@"histogram");
+			if (histogram == null) throw new ArgumentNullException(nameof(histogram));
 			StartIterate(histogram, 10e6f);
 		}
 		public void Iterate(Histogram histogram)
 		{
-			if (histogram == null) throw new ArgumentNullException("histogram");
+			if (histogram == null) throw new ArgumentNullException(nameof(histogram));
 			Iterate(histogram, 10e6f);
 		}
 

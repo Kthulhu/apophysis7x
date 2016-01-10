@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Xml.Linq;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Strings;
 using Xyrus.Apophysis.Windows;
 
@@ -16,7 +17,7 @@ namespace Xyrus.Apophysis.Models
 
 		public IteratorCollection([NotNull] Flame hostingFlame) : base(new List<Iterator>())
 		{
-			if (hostingFlame == null) throw new ArgumentNullException(@"hostingFlame");
+			if (hostingFlame == null) throw new ArgumentNullException(nameof(hostingFlame));
 
 			mFlame = hostingFlame;
 			Items.Add(new Iterator(mFlame));
@@ -44,7 +45,7 @@ namespace Xyrus.Apophysis.Models
 		}
 		public int Add([NotNull] Iterator iterator)
 		{
-			if (iterator == null) throw new ArgumentNullException(@"iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 
 			Items.Add(iterator);
 			Items.Sort(x => x.GroupIndex, x => x.GroupItemIndex);
@@ -66,7 +67,7 @@ namespace Xyrus.Apophysis.Models
 		}
 		public bool Remove([NotNull] Iterator iterator)
 		{
-			if (iterator == null) throw new ArgumentNullException(@"iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 			if (!CanRemove(iterator.GroupIndex)) throw new ApophysisException(Messages.IteratorCollectionRemovingLastPrimaryIteratorError);
 
 			if (!Contains(iterator)) 
@@ -90,7 +91,7 @@ namespace Xyrus.Apophysis.Models
 		[NotNull]
 		internal Iterator ConvertIterator([NotNull] Iterator iterator, int groupIndex)
 		{
-			if (iterator == null) throw new ArgumentNullException(@"iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 			var copy = iterator.Copy();
 
 			copy.GroupIndex = groupIndex;
@@ -130,7 +131,7 @@ namespace Xyrus.Apophysis.Models
 		[NotNull]
 		internal IteratorCollection Copy([NotNull] Flame flame)
 		{
-			if (flame == null) throw new ArgumentNullException(@"flame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 			var copy = new IteratorCollection(flame);
 
 			copy.Items.Clear();
@@ -184,7 +185,7 @@ namespace Xyrus.Apophysis.Models
 		}
 		public bool IsEqual([NotNull] IteratorCollection iterators)
 		{
-			if (iterators == null) throw new ArgumentNullException(@"iterators");
+			if (iterators == null) throw new ArgumentNullException(nameof(iterators));
 
 			if (!Equals(iterators.Count, Count))
 				return false;
@@ -218,7 +219,7 @@ namespace Xyrus.Apophysis.Models
 
 		public void WriteXml([NotNull] Collection<XElement> iteratorElements)
 		{
-			if (iteratorElements == null) throw new ArgumentNullException(@"iteratorElements");
+			if (iteratorElements == null) throw new ArgumentNullException(nameof(iteratorElements));
 
 			foreach (var iterator in this.OrderBy(x => x.GroupIndex))
 			{

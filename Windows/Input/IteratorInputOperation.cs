@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Models;
 
 namespace Xyrus.Apophysis.Windows.Input
@@ -7,7 +8,7 @@ namespace Xyrus.Apophysis.Windows.Input
 	{
 		protected IteratorInputOperation([NotNull] Iterator iterator)
 		{
-			if (iterator == null) throw new ArgumentNullException("iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 			Iterator = iterator;
 		}
 

@@ -14,7 +14,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			set
 			{
 				if (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(value.Trim()))
-					throw new ArgumentNullException(@"value");
+					throw new ArgumentNullException(nameof(value));
 
 				Container.NamePrefix = value;
 			}
@@ -25,7 +25,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			set
 			{
 				if (!UtilityExtensions.CheckDirectory(ref value))
-					throw new ArgumentException(Messages.DirectoryDoesntExistError, @"value");
+					throw new ArgumentException(Messages.DirectoryDoesntExistError, nameof(value));
 				Container.PluginDirectoryName = value;
 			}
 		}
@@ -52,7 +52,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			set
 			{
 				if (value < 1 || value > 120)
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 
 				Container.JpegQuality = value;
 			}

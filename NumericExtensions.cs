@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Numerics;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis
 {
@@ -57,7 +58,7 @@ namespace Xyrus.Apophysis
 		[Pure]
 		public static Vector2 Rotate(this Vector2 v, float angle, Vector2 origin = default(Vector2))
 		{
-			if (origin == null) throw new ArgumentNullException(@"origin");
+			if (origin == null) throw new ArgumentNullException(nameof(origin));
 
 			if (System.Math.Abs(origin.X - v.X) < float.Epsilon && System.Math.Abs(origin.Y - v.Y) < float.Epsilon)
 				return origin;
@@ -84,7 +85,7 @@ namespace Xyrus.Apophysis
 		public static Matrix3x2 Scale(this Matrix3x2 m, float scale)
 		{
 			if (System.Math.Abs(scale) < float.Epsilon)
-				throw new ArgumentOutOfRangeException(@"scale");
+				throw new ArgumentOutOfRangeException(nameof(scale));
 
 			var x = new Vector2(m.M11, m.M12) * scale;
 			var y = new Vector2(m.M21, m.M22) * scale;
@@ -95,7 +96,7 @@ namespace Xyrus.Apophysis
 		[Pure]
 		public static bool IsInProximity(this Vector2 v, Vector2 point, float epsilon = 1)
 		{
-			if (point == null) throw new ArgumentNullException("point");
+			if (point == null) throw new ArgumentNullException(nameof(point));
 			return (v - point).Length() < Float.Abs(epsilon);
 		}
 
@@ -120,7 +121,7 @@ namespace Xyrus.Apophysis
 		[Pure]
 		public static float NextFloat([NotNull] this Random r)
 		{
-			if (r == null) throw new ArgumentNullException("r");
+			if (r == null) throw new ArgumentNullException(nameof(r));
 
 			//todo x: who needs control over entropy anyway! no seriously, there's gotta be a better way ;)
 			return (float)r.NextDouble();

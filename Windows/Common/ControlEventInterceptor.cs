@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Windows
 {
@@ -14,7 +15,7 @@ namespace Xyrus.Apophysis.Windows
 
 		protected ControlEventInterceptor([NotNull] T control)
 		{
-			if (control == null) throw new ArgumentNullException("control");
+			if (control == null) throw new ArgumentNullException(nameof(control));
 			Attach(control);
 		}
 		protected void Dispose(bool disposing)
@@ -55,7 +56,7 @@ namespace Xyrus.Apophysis.Windows
 
 		private void Attach([NotNull] T control)
 		{
-			if (control == null) throw new ArgumentNullException("control");
+			if (control == null) throw new ArgumentNullException(nameof(control));
 
 			mControl = control;
 			RegisterEvents(control);

@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Calculation
 {
@@ -26,7 +27,7 @@ namespace Xyrus.Apophysis.Calculation
 
 		public override void StartIterate(Histogram histogram, float density)
 		{
-			if (histogram == null) throw new ArgumentNullException("histogram");
+			if (histogram == null) throw new ArgumentNullException(nameof(histogram));
 
 			ResetState();
 
@@ -41,7 +42,7 @@ namespace Xyrus.Apophysis.Calculation
 		}
 		public override void Iterate(Histogram histogram, float density)
 		{
-			if (histogram == null) throw new ArgumentNullException("histogram");
+			if (histogram == null) throw new ArgumentNullException(nameof(histogram));
 
 			ResetState();
 

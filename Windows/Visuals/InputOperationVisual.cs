@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Numerics;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Math;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Windows.Controllers;
@@ -58,7 +59,7 @@ namespace Xyrus.Apophysis.Windows.Visuals
 			get { return mCursorPosition; }
 			set
 			{
-				if (value == null) throw new ArgumentNullException("value");
+				if (value == null) throw new ArgumentNullException(nameof(value));
 				mCursorPosition = value;
 			}
 		}

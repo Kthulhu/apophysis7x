@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Windows.Forms;
 
 namespace Xyrus.Apophysis.Windows.Controllers
@@ -9,7 +10,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public FlamePropertiesToolbarController([NotNull] FlameProperties view, [NotNull] FlamePropertiesController parent) : base(view)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 
 			mParent = parent;
 		}

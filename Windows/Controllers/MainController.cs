@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Messaging;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Strings;
@@ -200,7 +201,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 			get { return mFlames; }
 			set
 			{
-				if (value == null) throw new ArgumentNullException("value");
+				if (value == null) throw new ArgumentNullException(nameof(value));
 
 				if (mFlames != null)
 				{
@@ -359,7 +360,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public void AppendFlame([NotNull] Flame flame)
 		{
-			if (flame == null) throw new ArgumentNullException("flame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 
 			var index = mFlames.Append(flame);
 			mBatchListController.SelectFlame(mFlames[index]);
@@ -449,7 +450,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public void LoadFlameAndEraseHistory([NotNull] Flame flame)
 		{
-			if (flame == null) throw new ArgumentNullException("flame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 
 			mEditorController.Flame = flame;
 			mFlamePropertiesController.Flame = flame;
@@ -568,7 +569,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public void ReplaceBatchWithConfirm([NotNull] FlameCollection batch)
 		{
-			if (batch == null) throw new ArgumentNullException("batch");
+			if (batch == null) throw new ArgumentNullException(nameof(batch));
 
 			if (!ConfirmReplaceBatch())
 				return;
@@ -578,7 +579,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 		}
 		public void DeleteFlameIfPossibleWithConfirm([NotNull] Flame flame)
 		{
-			if (flame == null) throw new ArgumentNullException("flame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 			if (!mFlames.CanRemove())
 				return;
 
@@ -620,7 +621,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 		}
 		public void SaveFlame([NotNull] Flame flame, string path, int maxBatchSize = int.MaxValue, string batchName = null)
 		{
-			if (flame == null) throw new ArgumentNullException("flame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 			FlameCollection batch;
 
 			if (File.Exists(path))

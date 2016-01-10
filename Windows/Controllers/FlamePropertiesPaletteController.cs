@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Windows.Forms;
 using Xyrus.Apophysis.Windows.Input;
@@ -20,7 +21,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public FlamePropertiesPaletteController(FlameProperties view, [NotNull] FlamePropertiesController parent) : base(view, parent.Initializer)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 
 			mParent = parent;
 			mEditHandlers = new List<PaletteEditHandler>
@@ -161,7 +162,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 			get { return mSelectedEditHandler; }
 			set
 			{
-				if (value == null) throw new ArgumentNullException("value");
+				if (value == null) throw new ArgumentNullException(nameof(value));
 				mSelectedEditHandler = value;
 				View.PaletteEditModeButton.Text = value.GetDisplayName();
 			}

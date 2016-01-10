@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Windows.Controllers
 {
@@ -10,7 +11,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 		public SettingsPreviewController([NotNull] Forms.Settings view, [NotNull] SettingsController parent)
 			: base(view)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 			mParent = parent;
 		}
 		protected override void DisposeOverride(bool disposing)

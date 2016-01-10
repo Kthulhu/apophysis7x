@@ -1,5 +1,6 @@
 using System;
 using System.Numerics;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Math;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Windows.Controllers;
@@ -10,8 +11,8 @@ namespace Xyrus.Apophysis.Windows.Input
 	{
 		public MoveOperation([NotNull] Iterator iterator, Vector2 origin, Vector2 current) : base(iterator)
 		{
-			if (origin == null) throw new ArgumentNullException("origin");
-			if (current == null) throw new ArgumentNullException("current");
+			if (origin == null) throw new ArgumentNullException(nameof(origin));
+			if (current == null) throw new ArgumentNullException(nameof(current));
 
 			Origin = origin;
 			Current = current;

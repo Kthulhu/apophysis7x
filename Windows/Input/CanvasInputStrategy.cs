@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Numerics;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Windows.Input
 {
@@ -13,7 +14,7 @@ namespace Xyrus.Apophysis.Windows.Input
 
 		protected CanvasInputStrategy([NotNull] Control control, [NotNull] T canvas) : base(control)
 		{
-			if (canvas == null) throw new ArgumentNullException("canvas");
+			if (canvas == null) throw new ArgumentNullException(nameof(canvas));
 			mCanvas = canvas;
 		}
 		protected override void DisposeOverride(bool disposing)

@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Calculation;
 using Xyrus.Apophysis.Windows.Controls;
 using Xyrus.Apophysis.Windows.Forms;
@@ -12,7 +13,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public IteratorVariationsController([NotNull] Editor view, [NotNull] EditorController parent) : base(view)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 			
 			mParent = parent;
 		}

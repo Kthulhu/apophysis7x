@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Math
 {
@@ -11,8 +12,8 @@ namespace Xyrus.Apophysis.Math
 
 		public Rectangle(Vector2 corner, Vector2 size)
 		{
-			if (corner == null) throw new ArgumentNullException(@"corner");
-			if (size == null) throw new ArgumentNullException(@"size");
+			if (corner == null) throw new ArgumentNullException(nameof(corner));
+			if (size == null) throw new ArgumentNullException(nameof(size));
 
 			mCorner = corner;
 			mSize = size;

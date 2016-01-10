@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Windows.Interfaces;
 
@@ -32,7 +33,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public void Reset(Flame flame)
 		{
-			if (flame == null) throw new ArgumentNullException("flame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 
 			mCurrent = flame.Copy();
 			mUndoStack = new Stack<Flame>();
@@ -41,7 +42,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public void CommitChange(Flame flame)
 		{
-			if (flame == null) throw new ArgumentNullException("flame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 			if (flame.IsEqual(mCurrent))
 				return;
 			

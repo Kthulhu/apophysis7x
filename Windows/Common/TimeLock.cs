@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using JetBrains.Annotations;
 using Timer = System.Windows.Forms.Timer;
 
 namespace Xyrus.Apophysis.Windows
@@ -20,7 +21,7 @@ namespace Xyrus.Apophysis.Windows
 			mTimer = new Timer();
 			mTimer.Tick += OnTick;
 
-			if (callback == null) throw new ArgumentNullException("callback");
+			if (callback == null) throw new ArgumentNullException(nameof(callback));
 			mCallback = callback;
 
 			Delay = 500;
@@ -57,7 +58,7 @@ namespace Xyrus.Apophysis.Windows
 			get { return mDelay; }
 			set
 			{
-				if (value < 0) throw new ArgumentOutOfRangeException("value");
+				if (value < 0) throw new ArgumentOutOfRangeException(nameof(value));
 
 				if (Equals(mDelay, value))
 					return;

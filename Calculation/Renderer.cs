@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Strings;
 
@@ -17,21 +18,16 @@ namespace Xyrus.Apophysis.Calculation
 		private NativeTimer mProgressTicker;
 		private FlameData mData;
 
-		private long mSamplingLevel;
-		private float? mLastSecondsPerIteration;
-		private float mAverageIterationsPerSecond;
-		private float mPureRenderingTime;
-
 		~Renderer()
 		{
 			Dispose(false);
 		}
 		public Renderer([NotNull] Flame flame, Size size, int oversample = 1, float filterRadius = 0, bool withTransparency = true)
 		{
-			if (flame == null) throw new ArgumentNullException("flame");
-			if (oversample <= 0) throw new ArgumentOutOfRangeException(@"oversample");
-			if (filterRadius < 0) throw new ArgumentOutOfRangeException(@"filterRadius");
-			if (size.Width <= 0 || size.Height <= 0) throw new ArgumentOutOfRangeException(@"size");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
+			if (oversample <= 0) throw new ArgumentOutOfRangeException(nameof(oversample));
+			if (filterRadius < 0) throw new ArgumentOutOfRangeException(nameof(filterRadius));
+			if (size.Width <= 0 || size.Height <= 0) throw new ArgumentOutOfRangeException(nameof(size));
 
 			Oversample = oversample;
 			FilterRadius = filterRadius;
@@ -101,15 +97,6 @@ namespace Xyrus.Apophysis.Calculation
 		public int Oversample { get; private set; }
 		public bool WithTransparency { get; private set; }
 
-		public float AverageIterationsPerSecond
-		{
-			get { return mAverageIterationsPerSecond; }
-		}
-		public float PureRenderingTime
-		{
-			get { return mPureRenderingTime; }
-		}
-
 		[NotNull]
 		public RenderMessengerBase Messenger
 		{
@@ -127,7 +114,7 @@ namespace Xyrus.Apophysis.Calculation
 			get { return mData; }
 			private set
 			{
-				if (value == null) throw new ArgumentNullException("value");
+				if (value == null) throw new ArgumentNullException(nameof(value));
 				mData = value;
 			}
 		}

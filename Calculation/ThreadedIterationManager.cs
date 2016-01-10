@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Strings;
 using ThreadState = Xyrus.Apophysis.Threading.ThreadState;
 
@@ -120,7 +121,7 @@ namespace Xyrus.Apophysis.Calculation
 
 		public void SetThreadCount(int? threadCount)
 		{
-			if (threadCount.HasValue && threadCount.Value <= 0) throw new ArgumentOutOfRangeException(@"threadCount");
+			if (threadCount.HasValue && threadCount.Value <= 0) throw new ArgumentOutOfRangeException(nameof(threadCount));
 
 			if (IsBusy)
 			{
@@ -147,7 +148,7 @@ namespace Xyrus.Apophysis.Calculation
 
 		public override void StartIterate(Histogram histogram, float density)
 		{
-			if (histogram == null) throw new ArgumentNullException("histogram");
+			if (histogram == null) throw new ArgumentNullException(nameof(histogram));
 
 			mCanProgress = false;
 			ResetState();
@@ -160,7 +161,7 @@ namespace Xyrus.Apophysis.Calculation
 		}
 		public override void Iterate(Histogram histogram, float density)
 		{
-			if (histogram == null) throw new ArgumentNullException("histogram");
+			if (histogram == null) throw new ArgumentNullException(nameof(histogram));
 
 			StartIterate(histogram, density);
 

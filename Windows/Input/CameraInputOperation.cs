@@ -1,4 +1,6 @@
 
+using JetBrains.Annotations;
+
 namespace Xyrus.Apophysis.Windows.Input
 {
 	[PublicAPI]

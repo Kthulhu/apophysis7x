@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Numerics;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Windows.Forms;
 using Xyrus.Apophysis.Windows.Interfaces;
@@ -14,7 +15,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public MainMenuController([NotNull] Main view, [NotNull] MainController parent) : base(view)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 			mParent = parent;
 		}
 		protected override void DisposeOverride(bool disposing)

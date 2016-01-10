@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Numerics;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Windows.Controls;
 using Xyrus.Apophysis.Windows.Forms;
 
@@ -19,7 +20,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public IteratorPointEditController([NotNull] Editor view, [NotNull] EditorController parent) : base(view)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 			
 			mParent = parent;
 		}

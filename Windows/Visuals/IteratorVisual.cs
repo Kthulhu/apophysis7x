@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.Numerics;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Math;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Windows.Controls;
@@ -16,7 +17,7 @@ namespace Xyrus.Apophysis.Windows.Visuals
 
 		public IteratorVisual([NotNull] Control control, [NotNull] Canvas canvas, [NotNull] Iterator model, IteratorMatrix activeMatrix) : base(control, canvas)
 		{
-			if (model == null) throw new ArgumentNullException("model");
+			if (model == null) throw new ArgumentNullException(nameof(model));
 
 			mIterator = model;
 			mActiveMatrix = activeMatrix;

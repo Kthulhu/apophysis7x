@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Calculation;
 using Xyrus.Apophysis.Windows.Forms;
 using Xyrus.Apophysis.Windows.Interfaces;
@@ -23,7 +24,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public FullscreenController([NotNull] MainController parent)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 
 			mParent = parent;
 

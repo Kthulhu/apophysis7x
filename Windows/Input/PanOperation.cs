@@ -1,5 +1,6 @@
 using System;
 using System.Numerics;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Windows.Controllers;
 
 namespace Xyrus.Apophysis.Windows.Input
@@ -12,8 +13,8 @@ namespace Xyrus.Apophysis.Windows.Input
 
 		public PanOperation(Vector2 newOffset, Vector2 oldOffset)
 		{
-			if (newOffset == null) throw new ArgumentNullException("newOffset");
-			if (oldOffset == null) throw new ArgumentNullException("oldOffset");
+			if (newOffset == null) throw new ArgumentNullException(nameof(newOffset));
+			if (oldOffset == null) throw new ArgumentNullException(nameof(oldOffset));
 			NewOffset = newOffset;
 			OldOffset = oldOffset;
 		}

@@ -2,6 +2,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Numerics;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Windows.Visuals
 {

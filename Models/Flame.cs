@@ -7,6 +7,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Xml.Linq;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Calculation;
 using Xyrus.Apophysis.Messaging;
 using Xyrus.Apophysis.Strings;
@@ -108,7 +109,7 @@ namespace Xyrus.Apophysis.Models
 			get { return mOrigin; }
 			set
 			{
-				if (value == null) throw new ArgumentNullException(@"value");
+				if (value == null) throw new ArgumentNullException(nameof(value));
 				mOrigin = value;
 			}
 		}
@@ -119,7 +120,7 @@ namespace Xyrus.Apophysis.Models
 			set
 			{
 				if (value.Width <= 0 || value.Height <= 0)
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 
 				var old = mCanvasSize;
 
@@ -144,7 +145,7 @@ namespace Xyrus.Apophysis.Models
 			set
 			{
 				if (value <= 0)
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 
 				mPixelsPerUnit = value;
 
@@ -186,7 +187,7 @@ namespace Xyrus.Apophysis.Models
 			set
 			{
 				if (value < 0)
-					throw new ArgumentOutOfRangeException(@"value"); 
+					throw new ArgumentOutOfRangeException(nameof(value)); 
 				mDepthOfField = value;
 			}
 		}
@@ -196,7 +197,7 @@ namespace Xyrus.Apophysis.Models
 			set
 			{
 				if (value <= 0)
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				mBrightness = value;
 			}
 		}
@@ -206,7 +207,7 @@ namespace Xyrus.Apophysis.Models
 			set
 			{
 				if (value < 1)
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				mGamma = value;
 			}
 		}
@@ -216,7 +217,7 @@ namespace Xyrus.Apophysis.Models
 			set
 			{
 				if (value < 0)
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				mGammaThreshold = value;
 			}
 		}
@@ -226,7 +227,7 @@ namespace Xyrus.Apophysis.Models
 			set
 			{
 				if (value < 0)
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				mVibrancy = value;
 			}
 		}
@@ -358,7 +359,7 @@ namespace Xyrus.Apophysis.Models
 		}
 		public bool IsEqual([NotNull] Flame flame)
 		{
-			if (flame == null) throw new ArgumentNullException(@"flame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 
 			if (!Equals(mName, flame.mName))
 				return false;
@@ -512,9 +513,9 @@ namespace Xyrus.Apophysis.Models
 		{
 			var count = Iterators.Count(x => x.GroupIndex == 0);
 			if (fromIteratorIndex < 0 || fromIteratorIndex >= count)
-				throw new ArgumentOutOfRangeException(@"fromIteratorIndex");
+				throw new ArgumentOutOfRangeException(nameof(fromIteratorIndex));
 			if (toIteratorIndex < 0 || toIteratorIndex >= count)
-				throw new ArgumentOutOfRangeException(@"toIteratorIndex");
+				throw new ArgumentOutOfRangeException(nameof(toIteratorIndex));
 
 			//todo xaos
 			return 1;
@@ -544,7 +545,7 @@ namespace Xyrus.Apophysis.Models
 		}
 		internal void ReadXml([NotNull] XElement element, bool isReadingBatch)
 		{
-			if (element == null) throw new ArgumentNullException(@"element");
+			if (element == null) throw new ArgumentNullException(nameof(element));
 
 			if (@"flame" != element.Name.ToString().ToLower())
 			{

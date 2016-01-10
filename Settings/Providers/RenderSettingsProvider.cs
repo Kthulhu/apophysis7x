@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Windows.Controllers;
 
 namespace Xyrus.Apophysis.Settings.Providers
@@ -14,7 +15,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 				if (value.HasValue)
 				{
 					if (value.Value.Width <= 0 || value.Value.Height <= 0)
-						throw new ArgumentOutOfRangeException("value");
+						throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.SizePreset1 = value.GetValueOrDefault();
@@ -28,7 +29,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 				if (value.HasValue)
 				{
 					if (value.Value.Width <= 0 || value.Value.Height <= 0)
-						throw new ArgumentOutOfRangeException("value");
+						throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.SizePreset2 = value.GetValueOrDefault();
@@ -42,7 +43,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 				if (value.HasValue)
 				{
 					if (value.Value.Width <= 0 || value.Value.Height <= 0)
-						throw new ArgumentOutOfRangeException("value");
+						throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.SizePreset3 = value.GetValueOrDefault();
@@ -73,7 +74,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 				if (value.HasValue)
 				{
 					if (value.Value.Width <= 0 || value.Value.Height <= 0)
-						throw new ArgumentOutOfRangeException("value");
+						throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.Size = value.GetValueOrDefault();
@@ -86,7 +87,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (value <= 0)
 				{
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.Density = value;
@@ -99,7 +100,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (value < 0)
 				{
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.FilterRadius = value;
@@ -112,7 +113,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (value <= 0)
 				{
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.Oversample = value;
@@ -125,7 +126,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			set
 			{
 				if (ThreadCount <= 0)
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 
 				Container.ThreadCount = value.GetValueOrDefault();
 			}
@@ -139,7 +140,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(value.Trim()))
 				{
-					throw new ArgumentNullException(@"value");
+					throw new ArgumentNullException(nameof(value));
 				}
 
 				Container.DestinationPath = value;

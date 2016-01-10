@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Resources;
 using Xyrus.Apophysis.Strings;
 
@@ -19,17 +20,17 @@ namespace Xyrus.Apophysis.Models
 
 		public PaletteCollection([NotNull] Flame fromFlame) : base(new List<Palette>())
 		{
-			if (fromFlame == null) throw new ArgumentNullException("fromFlame");
+			if (fromFlame == null) throw new ArgumentNullException(nameof(fromFlame));
 			Append(fromFlame.Palette);
 		}
 		public PaletteCollection([NotNull] IEnumerable<Palette> palettes) : base(new List<Palette>())
 		{
-			if (palettes == null) throw new ArgumentNullException("palettes");
+			if (palettes == null) throw new ArgumentNullException(nameof(palettes));
 
 			var array = palettes.ToArray();
 			if (!array.Any())
 			{
-				throw new ArgumentException(Messages.EmptyPaletteCollectionError, @"palettes");
+				throw new ArgumentException(Messages.EmptyPaletteCollectionError, nameof(palettes));
 			}
 
 			mName = null;
@@ -84,7 +85,7 @@ namespace Xyrus.Apophysis.Models
 
 		public int Append([NotNull] Palette palette)
 		{
-			if (palette == null) throw new ArgumentNullException(@"palette");
+			if (palette == null) throw new ArgumentNullException(nameof(palette));
 
 			Items.Add(palette);
 			RaiseContentChanged();
@@ -104,7 +105,7 @@ namespace Xyrus.Apophysis.Models
 		}
 		public bool Remove([NotNull] Palette palette)
 		{
-			if (palette == null) throw new ArgumentNullException("palette");
+			if (palette == null) throw new ArgumentNullException(nameof(palette));
 			if (!CanRemove()) throw new ApophysisException("Can't remove last palette from collection");
 
 			if (!Contains(palette))
@@ -137,7 +138,7 @@ namespace Xyrus.Apophysis.Models
 		public static IEnumerable<Palette> ReadUgr([NotNull] string data)
 		{
 			if (string.IsNullOrEmpty(data) || string.IsNullOrEmpty(data.Trim()))
-				throw new ArgumentNullException(@"data");
+				throw new ArgumentNullException(nameof(data));
 
 			const string collectPalettes = @"([a-z0-9\-_]+)\s*{\s*((?:gradient|alpha):\s*([a-z0-9=\s\-_""]+)\s*)}";
 			var palettes = Regex.Matches(data, collectPalettes, RegexOptions.IgnoreCase).OfType<Match>();
@@ -148,11 +149,11 @@ namespace Xyrus.Apophysis.Models
 		[NotNull]
 		public static string WriteUgr([NotNull] IEnumerable<Palette> palettes)
 		{
-			if (palettes == null) throw new ArgumentNullException("palettes");
+			if (palettes == null) throw new ArgumentNullException(nameof(palettes));
 
 			var list = palettes.ToList();
 			if (list.Count == 0)
-				throw new ArgumentNullException("palettes");
+				throw new ArgumentNullException(nameof(palettes));
 
 			var builder = new StringBuilder();
 

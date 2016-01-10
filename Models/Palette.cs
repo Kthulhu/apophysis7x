@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Strings;
 
 namespace Xyrus.Apophysis.Models
@@ -28,9 +29,9 @@ namespace Xyrus.Apophysis.Models
 
 		public Palette([NotNull] string name, [NotNull] Color[] colors) : this()
 		{
-			if (colors == null) throw new ArgumentNullException("colors");
-			if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(name.Trim())) throw new ArgumentNullException(@"name");
-			if (colors.Length < 1) throw new ArgumentOutOfRangeException("colors");
+			if (colors == null) throw new ArgumentNullException(nameof(colors));
+			if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(name.Trim())) throw new ArgumentNullException(nameof(name));
+			if (colors.Length < 1) throw new ArgumentOutOfRangeException(nameof(colors));
 
 			mColors = colors;
 			mName = name;
@@ -38,14 +39,14 @@ namespace Xyrus.Apophysis.Models
 
 		internal Palette([NotNull] string name) : this()
 		{
-			if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(name.Trim())) throw new ArgumentNullException(@"name");
+			if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(name.Trim())) throw new ArgumentNullException(nameof(name));
 
 			mColors = new Color[mDefaultLength];
 			mName = name;
 		}
 		internal Palette([NotNull] Flame flame) : this()
 		{
-			if (flame == null) throw new ArgumentNullException(@"flame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 
 			mColors = new Color[mDefaultLength];
 			mName = flame.CalculatedName;
@@ -320,7 +321,7 @@ namespace Xyrus.Apophysis.Models
 			var oldLength = mColors.Length;
 			var newLength = count;
 
-			if (newLength <= 1) throw new ArgumentOutOfRangeException("count", Messages.TooSmallPaletteError);
+			if (newLength <= 1) throw new ArgumentOutOfRangeException(nameof(count), Messages.TooSmallPaletteError);
 			if (oldLength == newLength)
 				return mColors.ToArray();
 
@@ -365,7 +366,7 @@ namespace Xyrus.Apophysis.Models
 
 		public bool IsEqual([NotNull] Palette palette)
 		{
-			if (palette == null) throw new ArgumentNullException(@"palette");
+			if (palette == null) throw new ArgumentNullException(nameof(palette));
 
 			if (!Equals(Length, palette.Length))
 				return false;
@@ -405,7 +406,7 @@ namespace Xyrus.Apophysis.Models
 		}
 		public void Overwrite([NotNull] Palette palette)
 		{
-			if (palette == null) throw new ArgumentNullException("palette");
+			if (palette == null) throw new ArgumentNullException(nameof(palette));
 
 			var length = mColors.Length;
 			var resized = palette.Resize(length);
@@ -415,7 +416,7 @@ namespace Xyrus.Apophysis.Models
 		}
 		public void Overwrite([NotNull] Color[] palette)
 		{
-			if (palette == null) throw new ArgumentNullException("palette");
+			if (palette == null) throw new ArgumentNullException(nameof(palette));
 
 			var length = mColors.Length;
 

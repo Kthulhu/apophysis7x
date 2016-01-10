@@ -1,4 +1,6 @@
-﻿namespace Xyrus.Apophysis.Threading
+﻿using JetBrains.Annotations;
+
+namespace Xyrus.Apophysis.Threading
 {
 	[PublicAPI]
 	public class ThreadState

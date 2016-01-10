@@ -12,7 +12,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (value < 0)
 				{
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.MoveDistance = value;
@@ -25,7 +25,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (value < float.Epsilon || value > 360)
 				{
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.RotateAngle = value;
@@ -38,7 +38,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (value < 1)
 				{
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.ScaleRatio = value;
@@ -85,7 +85,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (value <= 0)
 				{
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.VariationPreviewRange = value;
@@ -98,7 +98,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (value <= 0)
 				{
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.VariationPreviewDensity = value;

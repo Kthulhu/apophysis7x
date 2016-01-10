@@ -6,8 +6,8 @@ namespace Xyrus.Apophysis.Windows.Controls
 	{
 		public CellValueResetEventArgs(int column, int row, float value)
 		{
-			if (column < 0) throw new ArgumentOutOfRangeException("column");
-			if (row < 0) throw new ArgumentOutOfRangeException("row");
+			if (column < 0) throw new ArgumentOutOfRangeException(nameof(column));
+			if (row < 0) throw new ArgumentOutOfRangeException(nameof(row));
 
 			Column = column;
 			Row = row;

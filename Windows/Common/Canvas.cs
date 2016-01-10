@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Math;
 
 namespace Xyrus.Apophysis.Windows
@@ -11,9 +12,9 @@ namespace Xyrus.Apophysis.Windows
 
 		protected Canvas(Vector2 size)
 		{
-			if (size == null) throw new ArgumentNullException("size");
+			if (size == null) throw new ArgumentNullException(nameof(size));
 			if (size.X <= 0 || size.Y <= 0)
-				throw new ArgumentOutOfRangeException("size");
+				throw new ArgumentOutOfRangeException(nameof(size));
 
 			mSize = size;
 		}
@@ -33,8 +34,8 @@ namespace Xyrus.Apophysis.Windows
 
 		public Vector2 Snap(Vector2 point, Vector2 gridSize, CanvasSnapBehavior snapBehaviorX = CanvasSnapBehavior.Round, CanvasSnapBehavior snapBehaviorY = CanvasSnapBehavior.Round)
 		{
-			if (point == null) throw new ArgumentNullException("point");
-			if (gridSize == null) throw new ArgumentNullException("gridSize");
+			if (point == null) throw new ArgumentNullException(nameof(point));
+			if (gridSize == null) throw new ArgumentNullException(nameof(gridSize));
 
 			Func<float, float> funcX, funcY;
 
@@ -50,7 +51,7 @@ namespace Xyrus.Apophysis.Windows
 					funcX = Float.Ceiling;
 					break;
 				default:
-					throw new ArgumentOutOfRangeException("snapBehaviorX");
+					throw new ArgumentOutOfRangeException(nameof(snapBehaviorX));
 			}
 
 			switch (snapBehaviorY)
@@ -65,7 +66,7 @@ namespace Xyrus.Apophysis.Windows
 					funcY = Float.Ceiling;
 					break;
 				default:
-					throw new ArgumentOutOfRangeException("snapBehaviorY");
+					throw new ArgumentOutOfRangeException(nameof(snapBehaviorY));
 			}
 
 			var x = funcX(point.X / gridSize.X) * gridSize.X;
@@ -75,9 +76,9 @@ namespace Xyrus.Apophysis.Windows
 		}
 		public void Resize(Vector2 newSize)
 		{
-			if (newSize == null) throw new ArgumentNullException("newSize");
+			if (newSize == null) throw new ArgumentNullException(nameof(newSize));
 			if (newSize.X <= 0 || newSize.Y <= 0)
-				throw new ArgumentOutOfRangeException("newSize");
+				throw new ArgumentOutOfRangeException(nameof(newSize));
 
 			mSize = newSize;
 			ResizeOverride(mSize);

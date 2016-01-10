@@ -1,4 +1,5 @@
 using System.Drawing;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Windows.Controllers;
 
 namespace Xyrus.Apophysis.Windows.Input

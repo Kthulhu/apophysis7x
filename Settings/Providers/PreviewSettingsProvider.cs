@@ -24,7 +24,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (value < 0 || value > 1000)
 				{
-					throw new ArgumentOutOfRangeException("value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.MiniPreviewUpdateResolution = value;
@@ -38,7 +38,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (value <= 0)
 				{
-					throw new ArgumentOutOfRangeException("value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.MainPreviewDensity = (int)value;
@@ -51,7 +51,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (value <= 0 || value > 100)
 				{
-					throw new ArgumentOutOfRangeException("value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.BatchListPreviewDensity = value;
@@ -63,7 +63,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			get { return Container.LowQualityDensity; }
 			set
 			{
-				if (value <= 0) throw new ArgumentOutOfRangeException("value");
+				if (value <= 0) throw new ArgumentOutOfRangeException(nameof(value));
 				Container.LowQualityDensity = value;
 			}
 		}
@@ -72,7 +72,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			get { return Container.MediumQualityDensity; }
 			set
 			{
-				if (value <= 0) throw new ArgumentOutOfRangeException("value");
+				if (value <= 0) throw new ArgumentOutOfRangeException(nameof(value));
 				Container.MediumQualityDensity = value;
 			}
 		}
@@ -81,7 +81,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			get { return Container.HighQualityDensity; }
 			set
 			{
-				if (value <= 0) throw new ArgumentOutOfRangeException("value");
+				if (value <= 0) throw new ArgumentOutOfRangeException(nameof(value));
 				Container.HighQualityDensity = value;
 			}
 		}
@@ -94,7 +94,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 				if (value.HasValue)
 				{
 					if (value.Value.Width <= 0 || value.Value.Height <= 0)
-						throw new ArgumentOutOfRangeException("value");
+						throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.SizePreset1 = value.GetValueOrDefault();
@@ -108,7 +108,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 				if (value.HasValue)
 				{
 					if (value.Value.Width <= 0 || value.Value.Height <= 0)
-						throw new ArgumentOutOfRangeException("value");
+						throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.SizePreset2 = value.GetValueOrDefault();
@@ -122,7 +122,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 				if (value.HasValue)
 				{
 					if (value.Value.Width <= 0 || value.Value.Height <= 0)
-						throw new ArgumentOutOfRangeException("value");
+						throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.SizePreset3 = value.GetValueOrDefault();
@@ -135,7 +135,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			set
 			{
 				if (ThreadCount <= 0)
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 
 				Container.ThreadCount = value.GetValueOrDefault();
 			}
@@ -148,7 +148,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (value < 0)
 				{
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.FilterRadius = value;
@@ -161,7 +161,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			{
 				if (value <= 0)
 				{
-					throw new ArgumentOutOfRangeException(@"value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				Container.Oversample = value;

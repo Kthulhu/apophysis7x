@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Windows.Forms;
 
 namespace Xyrus.Apophysis.Windows.Controllers
@@ -11,7 +12,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 		public FlamePropertiesCameraController(FlameProperties view, [NotNull] FlamePropertiesController parent) 
 			: base(view, parent.Initializer)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 			mParent = parent;
 		}
 		protected override void DisposeOverride(bool disposing)

@@ -11,7 +11,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			set
 			{
 				if (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(value.Trim()))
-					throw new ArgumentNullException("value");
+					throw new ArgumentNullException(nameof(value));
 
 				if (!Directory.Exists(Path.GetDirectoryName(Environment.ExpandEnvironmentVariables(value)) ?? string.Empty))
 					throw new DirectoryNotFoundException();
@@ -25,7 +25,7 @@ namespace Xyrus.Apophysis.Settings.Providers
 			set
 			{
 				if (value <= 0)
-					throw new ArgumentOutOfRangeException("value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 
 				Container.Threshold = value;
 			}

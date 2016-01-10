@@ -1,5 +1,6 @@
 using System;
 using System.Numerics;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Windows.Input
 {
@@ -13,7 +14,7 @@ namespace Xyrus.Apophysis.Windows.Input
 			get { return mOrigin; }
 			set
 			{
-				if (value == null) throw new ArgumentNullException("value");
+				if (value == null) throw new ArgumentNullException(nameof(value));
 				mOrigin = value;
 			}
 		}

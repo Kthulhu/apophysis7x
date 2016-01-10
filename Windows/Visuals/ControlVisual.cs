@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Windows.Visuals
 {
@@ -13,7 +14,7 @@ namespace Xyrus.Apophysis.Windows.Visuals
 
 		public void Paint([NotNull] Graphics graphics)
 		{
-			if (graphics == null) throw new ArgumentNullException("graphics");
+			if (graphics == null) throw new ArgumentNullException(nameof(graphics));
 			OnControlPaint(graphics);
 		}
 	}

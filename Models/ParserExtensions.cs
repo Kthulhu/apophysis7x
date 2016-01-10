@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Numerics;
 using System.Xml.Linq;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Models
 {
@@ -10,7 +11,7 @@ namespace Xyrus.Apophysis.Models
 	{
 		public static Size ParseSize([NotNull] this XAttribute attribute, Size defaultValue = default(Size))
 		{
-			if (attribute == null) throw new ArgumentNullException("attribute");
+			if (attribute == null) throw new ArgumentNullException(nameof(attribute));
 
 			var tokens = attribute.Value.Split(' ');
 			if (tokens.Length < 2)
@@ -27,7 +28,7 @@ namespace Xyrus.Apophysis.Models
 
 		public static Vector2 ParseVector([NotNull] this XAttribute attribute, Vector2 defaultValue = default(Vector2))
 		{
-			if (attribute == null) throw new ArgumentNullException("attribute");
+			if (attribute == null) throw new ArgumentNullException(nameof(attribute));
 
 			var tokens = attribute.Value.Split(' ');
 			if (tokens.Length < 2)
@@ -44,7 +45,7 @@ namespace Xyrus.Apophysis.Models
 
 		public static Color ParseColor([NotNull] this XAttribute attribute, Color defaultValue = default(Color))
 		{
-			if (attribute == null) throw new ArgumentNullException("attribute");
+			if (attribute == null) throw new ArgumentNullException(nameof(attribute));
 
 			var tokens = attribute.Value.Split(' ');
 			if (tokens.Length < 3)
@@ -66,7 +67,7 @@ namespace Xyrus.Apophysis.Models
 
 		public static float ParseFloat([NotNull] this XAttribute attribute, float defaultValue = 0)
 		{
-			if (attribute == null) throw new ArgumentNullException("attribute");
+			if (attribute == null) throw new ArgumentNullException(nameof(attribute));
 
 			float value;
 			if (!float.TryParse(attribute.Value, NumberStyles.Float, CultureInfo.InvariantCulture, out value))
@@ -78,7 +79,7 @@ namespace Xyrus.Apophysis.Models
 		[NotNull]
 		public static float[] ParseCoefficients([NotNull] this XAttribute attribute)
 		{
-			if (attribute == null) throw new ArgumentNullException("attribute");
+			if (attribute == null) throw new ArgumentNullException(nameof(attribute));
 
 			var strings = attribute.Value.Split(' ');
 			if (strings.Length != 6)

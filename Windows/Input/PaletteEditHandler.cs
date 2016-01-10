@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Models;
 
 namespace Xyrus.Apophysis.Windows.Input
@@ -33,14 +34,14 @@ namespace Xyrus.Apophysis.Windows.Input
 
 		public void Initialize([NotNull] Palette palette)
 		{
-			if (palette == null) throw new ArgumentNullException("palette");
+			if (palette == null) throw new ArgumentNullException(nameof(palette));
 
 			mStartColors = new Color[palette.Length];
 			palette.CopyTo(mStartColors);
 		}
 		public void Calculate([NotNull] Palette palette)
 		{
-			if (palette == null) throw new ArgumentNullException(@"palette");
+			if (palette == null) throw new ArgumentNullException(nameof(palette));
 
 			var newColors = Calculate(mStartColors, mValue);
 			palette.Overwrite(newColors);

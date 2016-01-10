@@ -30,7 +30,7 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
-			this.CancelButton = new System.Windows.Forms.Button();
+			this.CancelSettingsButton = new System.Windows.Forms.Button();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.mTabs = new System.Windows.Forms.TabControl();
 			this.mCommonPage = new System.Windows.Forms.TabPage();
@@ -69,10 +69,10 @@
 			// 
 			// CancelButton
 			// 
-			resources.ApplyResources(this.CancelButton, "CancelButton");
-			this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelButton.Name = "CancelButton";
-			this.CancelButton.UseVisualStyleBackColor = true;
+			resources.ApplyResources(this.CancelSettingsButton, "CancelSettingsButton");
+			this.CancelSettingsButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.CancelSettingsButton.Name = "CancelSettingsButton";
+			this.CancelSettingsButton.UseVisualStyleBackColor = true;
 			// 
 			// OkButton
 			// 
@@ -326,7 +326,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.mTabs);
 			this.Controls.Add(this.OkButton);
-			this.Controls.Add(this.CancelButton);
+			this.Controls.Add(this.CancelSettingsButton);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
@@ -342,7 +342,7 @@
 
 		#endregion
 
-		public System.Windows.Forms.Button CancelButton;
+		public System.Windows.Forms.Button CancelSettingsButton;
 		public System.Windows.Forms.Button OkButton;
 		private System.Windows.Forms.TabControl mTabs;
 		private System.Windows.Forms.TabPage mCommonPage;

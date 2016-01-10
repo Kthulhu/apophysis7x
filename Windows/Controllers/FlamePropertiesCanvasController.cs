@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Windows.Forms;
 
 namespace Xyrus.Apophysis.Windows.Controllers
@@ -18,7 +19,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public FlamePropertiesCanvasController(FlameProperties view, [NotNull] FlamePropertiesController parent) : base(view)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 			mParent = parent;
 		}
 		protected override void DisposeOverride(bool disposing)
@@ -87,7 +88,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 				if (value.HasValue)
 				{
 					if (value.Value.Width <= 0 || value.Value.Height <= 0)
-						throw new ArgumentOutOfRangeException("value");
+						throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				mPreset1 = value;
@@ -102,7 +103,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 				if (value.HasValue)
 				{
 					if (value.Value.Width <= 0 || value.Value.Height <= 0)
-						throw new ArgumentOutOfRangeException("value");
+						throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				mPreset2 = value;
@@ -117,7 +118,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 				if (value.HasValue)
 				{
 					if (value.Value.Width <= 0 || value.Value.Height <= 0)
-						throw new ArgumentOutOfRangeException("value");
+						throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
 				mPreset3 = value;

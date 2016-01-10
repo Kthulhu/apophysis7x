@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 
 namespace Xyrus.Apophysis.Windows.Input
 {
@@ -11,8 +12,8 @@ namespace Xyrus.Apophysis.Windows.Input
 
 		public CameraChangedEventArgs([NotNull] CameraInputOperation operation, [NotNull] CameraData data)
 		{
-			if (operation == null) throw new ArgumentNullException("operation");
-			if (data == null) throw new ArgumentNullException("data");
+			if (operation == null) throw new ArgumentNullException(nameof(operation));
+			if (data == null) throw new ArgumentNullException(nameof(data));
 			Operation = operation;
 			Data = data;
 		}

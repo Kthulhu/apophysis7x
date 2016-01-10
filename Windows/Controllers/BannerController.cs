@@ -1,4 +1,5 @@
-﻿using Xyrus.Apophysis.Windows.Forms;
+﻿using JetBrains.Annotations;
+using Xyrus.Apophysis.Windows.Forms;
 
 namespace Xyrus.Apophysis.Windows.Controllers
 {

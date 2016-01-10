@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Math;
 
 namespace Xyrus.Apophysis.Windows
@@ -57,7 +58,7 @@ namespace Xyrus.Apophysis.Windows
 			};
 		}
 
-		protected override sealed void ResizeOverride(Vector2 newSize)
+		protected sealed override void ResizeOverride(Vector2 newSize)
 		{
 			mBase = (newSize/2.0f);
 		}

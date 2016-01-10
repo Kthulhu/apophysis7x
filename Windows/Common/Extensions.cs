@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Models;
 
 namespace Xyrus.Apophysis.Windows
@@ -85,7 +86,7 @@ namespace Xyrus.Apophysis.Windows
 
 		public static void Sort<T>([NotNull] this IList<T> list, params Expression<Func<T, object>>[] sortExpressions)
 		{
-			if (list == null) throw new ArgumentNullException("list");
+			if (list == null) throw new ArgumentNullException(nameof(list));
 
 			var funcs = (sortExpressions ?? new Expression<Func<T, object>>[0]).Select(x => x.Compile());
 			var result = list.ToArray().AsEnumerable();

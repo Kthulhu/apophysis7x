@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Models;
 
 namespace Xyrus.Apophysis.Windows.Controls
@@ -13,7 +14,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 
 		public EditorCommands([NotNull] EditorCanvas editor)
 		{
-			if (editor == null) throw new ArgumentNullException("editor");
+			if (editor == null) throw new ArgumentNullException(nameof(editor));
 			mEditor = editor;
 		}
 		protected override void Dispose(bool disposing)
@@ -64,7 +65,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 		}
 		public void DuplicateIterator([NotNull] Iterator iterator)
 		{
-			if (iterator == null) throw new ArgumentNullException("iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 
 			mEditor.RaiseBeginEdit();
 			mEditor.Iterators.Add(iterator.Copy());
@@ -87,7 +88,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 		}
 		public void RemoveIterator([NotNull] Iterator iterator)
 		{
-			if (iterator == null) throw new ArgumentNullException("iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 			if (!mEditor.Iterators.CanRemove(iterator.GroupIndex))
 				return;
 
@@ -129,7 +130,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 		}
 		public void ConvertIterator([NotNull] Iterator iterator, int groupIndex)
 		{
-			if (iterator == null) throw new ArgumentNullException("iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 
 			mEditor.RaiseBeginEdit();
 
@@ -183,7 +184,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 		}
 		public void FlipHorizontally([NotNull] Iterator iterator)
 		{
-			if (iterator == null) throw new ArgumentNullException("iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 
 			mEditor.RaiseBeginEdit();
 
@@ -235,7 +236,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 		}
 		public void FlipVertically([NotNull] Iterator iterator)
 		{
-			if (iterator == null) throw new ArgumentNullException("iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 
 			mEditor.RaiseBeginEdit();
 
@@ -258,7 +259,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 
 		public void RotateIterator([NotNull] Iterator iterator, float angle)
 		{
-			if (iterator == null) throw new ArgumentNullException("iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 
 			mEditor.RaiseBeginEdit();
 
@@ -287,7 +288,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 		}
 		public void ScaleIterator([NotNull] Iterator iterator, float ratio)
 		{
-			if (iterator == null) throw new ArgumentNullException("iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 
 			mEditor.RaiseBeginEdit();
 
@@ -316,7 +317,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 		}
 		public void MoveIterator([NotNull] Iterator iterator, Vector2 offset)
 		{
-			if (iterator == null) throw new ArgumentNullException("iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 
 			mEditor.RaiseBeginEdit();
 
@@ -361,7 +362,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 
 		public void ResetIterator([NotNull] Iterator iterator)
 		{
-			if (iterator == null) throw new ArgumentNullException("iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 
 			mEditor.RaiseBeginEdit();
 
@@ -390,7 +391,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 		}
 		public void ResetIteratorOrigin([NotNull] Iterator iterator)
 		{
-			if (iterator == null) throw new ArgumentNullException("iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 
 			mEditor.RaiseBeginEdit();
 
@@ -419,7 +420,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 		}
 		public void ResetIteratorAngle([NotNull] Iterator iterator)
 		{
-			if (iterator == null) throw new ArgumentNullException("iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 
 			mEditor.RaiseBeginEdit();
 
@@ -467,7 +468,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 		}
 		public void ResetIteratorScale([NotNull] Iterator iterator)
 		{
-			if (iterator == null) throw new ArgumentNullException("iterator");
+			if (iterator == null) throw new ArgumentNullException(nameof(iterator));
 
 			mEditor.RaiseBeginEdit();
 

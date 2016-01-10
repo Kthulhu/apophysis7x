@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Linq;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Calculation;
 using Xyrus.Apophysis.Messaging;
 using Xyrus.Apophysis.Models;
@@ -60,7 +61,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public void Summarize([NotNull] Flame flame)
 		{
-			if (flame == null) throw new ArgumentNullException("flame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 
 			var builder = new StringBuilder();
 			var header = string.Format("Flame \"{0}\"", flame.CalculatedName);

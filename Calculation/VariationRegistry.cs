@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Strings;
 
 namespace Xyrus.Apophysis.Calculation

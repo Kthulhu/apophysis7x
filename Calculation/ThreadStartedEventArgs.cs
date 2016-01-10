@@ -1,4 +1,6 @@
-﻿namespace Xyrus.Apophysis.Calculation
+﻿using JetBrains.Annotations;
+
+namespace Xyrus.Apophysis.Calculation
 {
 	[PublicAPI]
 	public class ThreadStartedEventArgs : StartedEventArgs

@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Numerics;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Windows.Controls;
 using Xyrus.Apophysis.Windows.Visuals;
@@ -47,9 +48,9 @@ namespace Xyrus.Apophysis.Windows.Input
 		}
 		public IteratorInputHandler([NotNull] Control control, [NotNull] IteratorVisual visual, [NotNull] Canvas canvas, [NotNull] EditorSettings settings, IteratorMatrix activeMatrix) : base(control)
 		{
-			if (visual == null) throw new ArgumentNullException("visual");
-			if (canvas == null) throw new ArgumentNullException("canvas");
-			if (settings == null) throw new ArgumentNullException("settings");
+			if (visual == null) throw new ArgumentNullException(nameof(visual));
+			if (canvas == null) throw new ArgumentNullException(nameof(canvas));
+			if (settings == null) throw new ArgumentNullException(nameof(settings));
 
 			mVisual = visual;
 			mCanvas = canvas;

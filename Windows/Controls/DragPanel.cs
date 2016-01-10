@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Windows.Controllers;
 using Xyrus.Apophysis.Windows.Input;
 
@@ -122,7 +123,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 			set
 			{
 				if (value > mMaximum || value < mMinimum)
-					throw new ArgumentOutOfRangeException("value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 
 				mDefault = value;
 				Value = value;
@@ -134,7 +135,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 			set
 			{
 				if (value > mMaximum)
-					throw new ArgumentOutOfRangeException("value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 
 				mMinimum = value;
 				ConstrainValue(value, mMaximum);
@@ -146,7 +147,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 			set
 			{
 				if (value < mMinimum)
-					throw new ArgumentOutOfRangeException("value");
+					throw new ArgumentOutOfRangeException(nameof(value));
 
 				mMaximum = value;
 				ConstrainValue(mMinimum, value);

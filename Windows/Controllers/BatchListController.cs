@@ -6,6 +6,7 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Calculation;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Threading;
@@ -29,7 +30,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public BatchListController([NotNull] Main view, [NotNull] MainController parent) : base(view)
 		{
-			if (parent == null) throw new ArgumentNullException("parent");
+			if (parent == null) throw new ArgumentNullException(nameof(parent));
 
 			mParent = parent;
 			mPreviewThreadController = new ThreadController(ThreadPriority.Lowest);
@@ -135,7 +136,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 
 		public void SelectFlame([NotNull] Flame flame)
 		{
-			if (flame == null) throw new ArgumentNullException("flame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 			if (mParent.Initializer.IsBusy || mParent.Flames == null)
 				return;
 
@@ -261,7 +262,7 @@ namespace Xyrus.Apophysis.Windows.Controllers
 		}
 		private void SetListSelection([NotNull] Flame flame)
 		{
-			if (flame == null) throw new ArgumentNullException("flame");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
 			var index = mParent.Flames.IndexOf(flame);
 			if (index < 0)
 				return;

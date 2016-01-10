@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Threading;
 
@@ -9,9 +10,9 @@ namespace Xyrus.Apophysis.Calculation
 	{
 		public Bitmap CreateBitmap([NotNull] Flame flame, float density, Size size, ThreadStateToken threadState = null)
 		{
-			if (flame == null) throw new ArgumentNullException(@"flame");
-			if (density <= 0) throw new ArgumentOutOfRangeException(@"density");
-			if (size.Width <= 0 || size.Height <= 0) throw new ArgumentOutOfRangeException(@"size");
+			if (flame == null) throw new ArgumentNullException(nameof(flame));
+			if (density <= 0) throw new ArgumentOutOfRangeException(nameof(density));
+			if (size.Width <= 0 || size.Height <= 0) throw new ArgumentOutOfRangeException(nameof(size));
 
 			var progress = new ProgressManager(threadState);
 

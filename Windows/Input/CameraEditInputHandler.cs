@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Numerics;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Models;
 using Xyrus.Apophysis.Windows.Visuals;
 using Rectangle = System.Drawing.Rectangle;
@@ -27,7 +28,7 @@ namespace Xyrus.Apophysis.Windows.Input
 
 		public CameraEditInputHandler([NotNull] Control control, [NotNull] PreviewInputVisual inputVisual) : base(control)
 		{
-			if (inputVisual == null) throw new ArgumentNullException("inputVisual");
+			if (inputVisual == null) throw new ArgumentNullException(nameof(inputVisual));
 			mInputVisual = inputVisual;
 		}
 		protected override void DisposeOverride(bool disposing)

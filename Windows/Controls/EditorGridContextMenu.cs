@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 using Xyrus.Apophysis.Windows.Resources;
 
 namespace Xyrus.Apophysis.Windows.Controls
@@ -16,7 +17,7 @@ namespace Xyrus.Apophysis.Windows.Controls
 
 		public EditorGridContextMenu([NotNull] EditorCanvas editor)
 		{
-			if (editor == null) throw new ArgumentNullException("editor");
+			if (editor == null) throw new ArgumentNullException(nameof(editor));
 			mEditor = editor;
 
 			var items = new ToolStripItem[]
